@@ -1,0 +1,16 @@
+<h2>Saved news</h2>
+<h4 ng-if="news.length===0">There is nothing to show</h4>
+<div class="row">
+
+	<div class="col-xs-12 col-sm-6 col-lg-4 item" ng-repeat="article in news | orderBy:'publishedAt':reverse:true">
+        <div class="preview-img text-center">
+            <img ng-src="{{article.urlToImage}}" alt="{{article.title}}" class="img-responsive img-rounded"/>
+            <span class="label" ng-class="article.category">{{article.category}}</span>
+        </div>
+        <h3 class="news-title">{{article.title}}</h3>
+        <p>
+            <a class="btn btn-info" href="#/articles/{{article.id}}" role="button">View details &raquo;</a>
+            <button class="btn btn-danger" role="button" ng-click="deleteArticle(article.id)">Delete article</button>
+        </p>
+    </div>
+</div> 

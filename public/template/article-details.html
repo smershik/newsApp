@@ -1,0 +1,11 @@
+<img src="{{article.urlToImage}}" class="img-responsive img-rounded img-article-details" alt="{{article.title}}">
+<h2>{{article.title}}</h2>
+<p>{{article.description}}</p>
+<p>Author: <b>{{article.author}}</b></p>
+<p>Source: <b>{{article.sourceName}}</b></p>
+<p>{{article.publishedAt | date:'MMM d, y h:mm:ss a'}}</p>
+<p>
+	<a href="{{article.url}}" target="_blank" class="btn btn-info" role="button">Read more</a>
+	<button class="btn btn-danger" ng-if="isArticleSaved(article.id)" ng-click="deleteArticle(article.id)">Delete</button>
+	<button class="btn btn-success" ng-if="!isArticleSaved(article.id)" ng-click="saveArticle(article)">Save for later</button>
+</p>

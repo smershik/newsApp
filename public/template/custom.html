@@ -1,0 +1,31 @@
+<h2>Custom news</h2>
+<div class="row">
+
+	<form class="col-lg-12">
+	  	<div class="form-group">
+	    	<label for="news-title">News title:</label>
+	    	<input type="text" class="form-control" id="news-title" ng-required="true" ng-model="newsTitle">
+	  	</div>
+	  	<div class="form-group">
+	    	<label for="news-text">News text:</label>
+	    	<textarea rows="4" class="form-control" id="news-text" ng-required="true" ng-model="newsText"></textarea>
+	  	</div>
+	  	<button class="btn btn-success" ng-click="addCustomArticle()" ng-disabled="!newsTitle||!newsText">Add</button>
+	</form>
+	
+	<hr>
+
+	<div class="col-xs-12 col-sm-6 col-lg-4 item custom-news-item" ng-repeat="article in customNews | orderBy:'publishedAt':reverse:true">
+        <h3 class="news-title">{{article.title}}</h3>
+        <p>
+            <a class="btn btn-info" href="#/custom-articles/{{article.id}}" role="button">View details &raquo;</a>
+            <button class="btn btn-danger" role="button" ng-click="deleteCustomArticle(article.id)">Delete article</button>
+        </p>
+    </div>
+</div>
+
+
+<!-- <pre>{{customNews | json}}</pre> -->
+
+<h4 ng-if="customNews.length===0">There is nothing to show</h4>
+

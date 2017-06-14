@@ -1,0 +1,38 @@
+<div class="row row-offcanvas row-offcanvas-right">
+
+    <div class="col-lg-12">
+
+        <div class="jumbotron text-center">
+            <h1>News App</h1>
+            <p>Test application</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-12">
+                <label class="tags-label"> Sources 
+                    <tags-input ng-model="tagsSources" addFromAutocompleteOnly="true" class="col-xs-12">
+                        <auto-complete source="loadTags($query)" 
+                                min-length="0" 
+                                load-on-down-arrow="true" 
+                                max-results-to-show="100">
+                        </auto-complete>
+                    </tags-input>
+                </label>
+            </div>
+        
+            <div class="col-xs-12 col-sm-6 col-lg-4 item" ng-repeat="article in news | orderBy:'publishedAt':reverse:true | filterByTags:tagsSources">
+                <div class="preview-img text-center">
+                    <img ng-src="{{article.urlToImage}}" alt="{{article.title}}" ng-if="article.urlToImage" class="img-responsive img-rounded"/>
+                    <img ng-src="../img/item-news.jpg" alt="{{article.title}}" ng-if="!article.urlToImage" class="img-responsive img-rounded"/>
+                    <span class="label" ng-class="article.category">{{article.category}}</span>
+                </div>
+                <h3 class="news-title">{{article.title}}</h3>
+                <p>
+                    <a class="btn btn-info" href="#/articles/{{article.id}}" role="button">View details &raquo;</a>
+                    <button class="btn btn-success" role="button" ng-if="!isArticleSaved(article.id)" ng-click="saveArticle(article)">Save for later</button>
+                    <button class="btn btn-danger" role="button" ng-if="isArticleSaved(article.id)" ng-click="deleteArticle(article.id)">Delete article</button>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
