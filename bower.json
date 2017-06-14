@@ -8,6 +8,8 @@
   "dependencies": {
     "angular": "1.5.x",
     "angular-mocks": "1.5.x",
+    "angular-route": "1.5.x",
+    "angular-resource": "1.5.x",
     "bootstrap": "3.3.x",
     "ng-tags-input": "3.2.0",
     "angular-local-storage": "^0.6.0",
