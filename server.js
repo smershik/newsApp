@@ -2,11 +2,15 @@
 var express  = require('express');
 var app      = express(); 								// create our app w/ express
 var port  	 = process.env.PORT || 8080; 				// set the port
+var favicon = require('express-favicon');
 
 var morgan = require('morgan'); 		// log requests to the console (express4)
 var bodyParser = require('body-parser'); 	// pull information from HTML POST (express4)
 var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
 
+var favicon = require('express-favicon');
+ 
+app.use(favicon(__dirname + '/public/favicon.ico'));
 
 app.use(express.static(__dirname + '/public')); 				// set the static files location /public/img will be /img for users
 app.use(morgan('dev')); 										// log every request to the console

@@ -1,20 +1,20 @@
 {
-  "name"         : "news-app",
-  "version"      : "0.0.0",
-  "description"  : "angular news api app",
-  "main"         : "server.js",
-  "author"       : "tma",
-  "dependencies" : {
+  "name": "news-app",
+  "version": "0.0.0",
+  "description": "angular news api app",
+  "main": "server.js",
+  "author": "tma",
+  "dependencies": {
+    "body-parser": "~1.5.2",
     "bower": "^1.7.7",
-    "express"    : "~4.7.2",
-    "morgan"   : "~1.2.2",
-	"body-parser": "~1.5.2",
-	"method-override": "~2.1.2"
+    "express": "~4.7.2",
+    "express-favicon": "^2.0.0",
+    "method-override": "~2.1.2",
+    "morgan": "~1.2.2"
   },
-  "scripts" : {
+  "scripts": {
     "postinstall": "bower install",
     "prestart": "npm install",
     "start": "node server.js"
   }
-
 }
