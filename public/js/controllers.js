@@ -9,6 +9,7 @@ newsApp.controller('newsListCtrl', ['$scope','News', function($scope, News){
 	$scope.saveArticle = News.saveArticle;
 	$scope.isArticleSaved = News.isArticleSaved;
 	$scope.deleteArticle = News.deleteArticle;
+	$scope.getArticle = News.getArticle;
 	
 	$scope.loadTags = function($query) {
     	return $scope.sources.filter(function(source) {
@@ -58,11 +59,12 @@ newsApp.controller('CustomNewsListCtrl',['$scope', 'CustomNews', function($scope
 
 
 //Article Detail Controller
-newsApp.controller('ArticleDetailCtrl',['$scope', '$routeParams','News', 
+newsApp.controller('ArticleDetailCtrl',['$scope', '$routeParams','News',
 	function($scope, $routeParams, News) {
+		$scope.id = $routeParams.articleId;
 	  	$scope.isArticleSaved = News.isArticleSaved;
-	  	$scope.article = $scope.isArticleSaved($routeParams.articleId)?News.getArticleFromSaved($routeParams.articleId):News.getArticle($routeParams.articleId);
-	  	$scope.saveArticle = News.saveArticle;
+	  	$scope.getArticle = News.getArticle;
+	  	$scope.saveArticleById = News.saveArticleById;
 	  	$scope.deleteArticle = News.deleteArticle;
 	
 }]);

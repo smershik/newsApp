@@ -67,6 +67,13 @@ newsApp.factory('News', ['$http','Sources','Articles','localStorageService',
 		localStorageService.set('articles',savedArticles);
 	};
 
+	news.saveArticleById = function (articleId) {
+		var savedArticles = news.getSavedArticles();
+		var article = news.getArticle(articleId);
+		savedArticles.push(article);
+		localStorageService.set('articles',savedArticles);
+	};
+
 	news.deleteArticle = function(articleId) {
 		var savedArticles = news.getSavedArticles();
 		savedArticles = _.filter(savedArticles,obj => obj.id!==articleId);

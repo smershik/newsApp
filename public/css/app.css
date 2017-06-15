@@ -50,6 +50,13 @@ footer {
   border: 5px solid white;
   background: #EDEDED;
 }
+.tags-label{
+  padding: 10px;
+  padding-bottom: 20px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  background-color: #EDEDED;
+}
 .custom-news-item{
    height: 150px;
 }
