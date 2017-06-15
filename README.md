@@ -1,2 +1,2 @@
-News api test application\n
-for start type "npm start" 
+##News api test application
+run "npm start" 
